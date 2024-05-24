@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ACTION, ActionType } from "@/reducers/users-reducer";
 import { useState } from "react";
 
 type Props = {
-  createUser: (name: string) => void;
+  dispatchUsers: React.Dispatch<ActionType>;
 };
 
-const NewUserForm = ({ createUser }: Props) => {
+const NewUserForm = ({ dispatchUsers }: Props) => {
   const [newName, setNewName] = useState("");
 
   const resetNewName = () => {
@@ -15,7 +16,7 @@ const NewUserForm = ({ createUser }: Props) => {
 
   const handleCreateUser = () => {
     if (newName === "") return;
-    createUser(newName);
+    dispatchUsers({ type: ACTION.ADD, name: newName });
     resetNewName();
   };
 

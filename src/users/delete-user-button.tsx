@@ -1,14 +1,15 @@
 import { UserType } from "@/App";
 import { Button } from "@/components/ui/button";
+import { ACTION, ActionType } from "@/reducers/users-reducer";
 
 type Props = {
-  deleteUser: (id: string) => void;
+  dispatchUsers: React.Dispatch<ActionType>;
   userId: UserType["id"];
 };
 
-const DeleteUserButton = ({ deleteUser, userId }: Props) => {
+const DeleteUserButton = ({ dispatchUsers, userId }: Props) => {
   const handleDelete = () => {
-    deleteUser(userId);
+    dispatchUsers({ type: ACTION.DELETE, id: userId });
   };
   return (
     <Button variant="destructive" onClick={handleDelete}>

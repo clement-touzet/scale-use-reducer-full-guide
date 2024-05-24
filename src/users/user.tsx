@@ -1,16 +1,16 @@
 import { Input } from "@/components/ui/input";
 import { UserType } from "../App";
 import DeleteUserButton from "./delete-user-button";
+import { ACTION, ActionType } from "@/reducers/users-reducer";
 
 type Props = {
   user: UserType;
-  deleteUser: (id: string) => void;
-  updateUser: (name: string, id: string) => void;
+  dispatchUsers: React.Dispatch<ActionType>;
 };
 
-const User = ({ user, deleteUser, updateUser }: Props) => {
+const User = ({ user, dispatchUsers }: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateUser(user.id, e.target.value);
+    dispatchUsers({ type: ACTION.UPDATE, id: user.id, name: e.target.value });
   };
 
   return (
@@ -21,7 +21,7 @@ const User = ({ user, deleteUser, updateUser }: Props) => {
         onChange={handleChange}
       />
 
-      <DeleteUserButton deleteUser={deleteUser} userId={user.id} />
+      <DeleteUserButton dispatchUsers={dispatchUsers} userId={user.id} />
     </div>
   );
 };

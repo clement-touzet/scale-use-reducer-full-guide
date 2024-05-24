@@ -25,7 +25,7 @@ const NewUserForm = ({ createUser }: Props) => {
 
   return (
     <div className="flex flex-col mb-4">
-      <h3 className="h3 font-medium text-lg mb-2">nouvel utilisateur :</h3>
+      <h3 className="h3 font-medium text-lg mb-2">Nouvel utilisateur :</h3>
       <div className="flex gap-2">
         <Input
           type="text"

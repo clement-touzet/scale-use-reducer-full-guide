@@ -13,7 +13,8 @@ const Users = ({ users, createUser, deleteUser, updateUser }: Props) => {
   return (
     <div className="max-w-xl mt-12">
       <p className="mb-8 font-bold">
-        Cas normal (avec un useState) pour gérer la liste des utilisateurs
+        Cas normal (avec un useState) pour gérer la liste des utilisateurs pour
+        voir le cas avec le reducer, il faut aller sur l'autre branche git
       </p>
       <NewUserForm createUser={createUser} />
       <h1 className="h1 font-bold text-3xl mb-2">Liste des utilisateurs</h1>

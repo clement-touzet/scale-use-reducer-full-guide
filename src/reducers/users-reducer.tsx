@@ -69,5 +69,5 @@ export const usersReducer = (users: UserType[], action: ActionType) => {
     case ACTION.UPDATE:
       return updateUser(action.id, action.name);
   }
-  return { ...users };
+  return [...users];
 };

@@ -1,13 +1,15 @@
 import { UserType } from "@/App";
 import { Button } from "@/components/ui/button";
-import { ACTION, ActionType } from "@/reducers/users-reducer";
+import { useDispatchUsers } from "@/hooks/use-dispatch-users";
+import { ACTION } from "@/reducers/users-reducer";
 
 type Props = {
-  dispatchUsers: React.Dispatch<ActionType>;
   userId: UserType["id"];
 };
 
-const DeleteUserButton = ({ dispatchUsers, userId }: Props) => {
+const DeleteUserButton = ({ userId }: Props) => {
+  const dispatchUsers = useDispatchUsers();
+
   const handleDelete = () => {
     dispatchUsers({ type: ACTION.DELETE, id: userId });
   };

@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ACTION, ActionType } from "@/reducers/users-reducer";
+import { useDispatchUsers } from "@/hooks/use-dispatch-users";
+import { ACTION } from "@/reducers/users-reducer";
 import { useState } from "react";
 
-type Props = {
-  dispatchUsers: React.Dispatch<ActionType>;
-};
-
-const NewUserForm = ({ dispatchUsers }: Props) => {
+const NewUserForm = () => {
   const [newName, setNewName] = useState("");
+
+  const dispatchUsers = useDispatchUsers();
 
   const resetNewName = () => {
     setNewName("");
